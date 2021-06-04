@@ -1,5 +1,6 @@
- import * as firebase from "firebase/app";
+ import firebase from "firebase/app";
  import "firebase/storage";
+ import 'firebase/analytics'
  import "firebase/firestore"
  
  // Your web app's Firebase configuration
@@ -16,5 +17,6 @@
 
   const projectStorage = firebase.storage()
   const projectFirestore = firebase.firestore()
+  const timeStamp = firebase.firestore.FieldValue.serverTimestamp
 
-  export {projectStorage, projectFirestore}
+  export {projectStorage, projectFirestore, timeStamp}

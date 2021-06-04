@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import ProgressBar from "./ProgressBar"
 
 const UploadForm = () => {
 
@@ -10,7 +11,7 @@ const UploadForm = () => {
         const selected = e.target.files[0]
 
         if(selected){
-            if(!selected.type === "" && fileTypes.includes(selected.type)){
+            if(selected.type !== "" && fileTypes.includes(selected.type)){
                 setErrorUpload(selected.name)
                 setFile(selected)
             }
@@ -26,10 +27,13 @@ const UploadForm = () => {
     
     
     return (
-        <form>
-            <input type="file" onChange={handleFile} />
-            <p>{errorUpload}</p>
-        </form>
+        <div>
+            <form>
+                <input type="file" onChange={handleFile} />
+                <p>{errorUpload}</p>
+            </form>
+            { file && <ProgressBar file={file} setFile={setFile} />}
+        </div>
     )
 }
 
