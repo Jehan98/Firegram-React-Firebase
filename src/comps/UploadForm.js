@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import ImageGrid from './ImageGrid'
 import ProgressBar from "./ProgressBar"
 
 const UploadForm = () => {
@@ -24,15 +25,15 @@ const UploadForm = () => {
         }
         
     }
-    
-    
+     
     return (
         <div>
             <form>
-                <input type="file" onChange={handleFile} />
+                <input type="file" onChange={handleFile} className="round-button" />
                 <p>{errorUpload}</p>
             </form>
             { file && <ProgressBar file={file} setFile={setFile} />}
+            <ImageGrid />
         </div>
     )
 }
